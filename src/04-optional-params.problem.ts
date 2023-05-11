@@ -1,6 +1,12 @@
 import { expect, it } from "vitest";
 
-export const getName = (first: string, last: string) => {
+/**
+ * You can't put the optional argument before the required one (i.e. put `last?` before `first`)
+ * You can also say it like `last: string | undefined`,
+ * but then you have to specify `undefined` as the second argument
+ * when invoking the function
+ */
+export const getName = (first: string, last?: string) => {
   if (last) {
     return `${first} ${last}`;
   }
